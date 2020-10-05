@@ -1,20 +1,24 @@
 import React from 'react'
 import { Nav, Navbar, NavDropdown } from 'react-bootstrap'
+import { LinkContainer } from 'react-router-bootstrap'
+import { Link } from 'react-router-dom'
 
 const Header = () => {
   return (
     <Navbar bg='dark' expand='lg' variant='dark'>
-      <Navbar.Brand>WebShop</Navbar.Brand>
+      <LinkContainer to='/'>
+        <Navbar.Brand>WebShop</Navbar.Brand>
+      </LinkContainer>
+
       <Navbar.Toggle aria-controls='basic-navbar-nav' />
       <Navbar.Collapse id='basic-navbar-nav'>
         <Nav className='mr-auto'>
-          <Nav.Link>Home</Nav.Link>
-          <NavDropdown id='basic-nav-dropdown' title='Products'>
-            <NavDropdown.Item>Phones</NavDropdown.Item>
-            <NavDropdown.Item>Computers</NavDropdown.Item>
-            <NavDropdown.Divider />
-            <NavDropdown.Item>Headphones</NavDropdown.Item>
-          </NavDropdown>
+          <LinkContainer to='/'>
+            <Nav.Link>Home</Nav.Link>
+          </LinkContainer>
+          <LinkContainer to='/cart'>
+            <Nav.Link>Cart</Nav.Link>
+          </LinkContainer>
         </Nav>
         <Navbar.Text>Hello, guest!</Navbar.Text>
       </Navbar.Collapse>

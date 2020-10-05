@@ -14,6 +14,8 @@ const ProductScreen: React.FC<ProductScreenProps> = ({ match }) => {
   const product = products.find((x) => x.id === id)
   console.log(product)
 
+  const handleAddToCart = (id: Number) => {}
+
   return (
     <>
       <Container>
@@ -28,7 +30,9 @@ const ProductScreen: React.FC<ProductScreenProps> = ({ match }) => {
             <h1>{product?.name}</h1>
             <h3>${product?.price}</h3>
             <p>{product?.desc}</p>
-            <Button variant='primary'>Buy Now</Button>
+            <Button variant='primary' onClick={handleAddToCart(product?.id)}>
+              Buy Now
+            </Button>
           </Col>
         </Row>
       </Container>
