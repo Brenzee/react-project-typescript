@@ -1,16 +1,26 @@
-interface Actions {
-  type: String
-  payload: {}
+import { ADD_CART, REMOVE_CART } from '../constants'
+const initialState: CartState = {
+  cart: [],
 }
 
-export const cartReducer = (state = { cartItems: [] }, action: Actions) => {
+export const cartReducer = (state = initialState, action: CartActionTypes) => {
   switch (action.type) {
-    case 'CART_ADD':
-      console.log('added to cart')
+    case ADD_CART:
       return {
         ...state,
-        cartItem: [...state.cartItems, action.payload],
+        cart: [...state.cart, action.payload],
       }
+    case REMOVE_CART: {
+      console.log('remove')
+      const index = state.cart.findIndex((item) => item.id === action.payload)
+      console.log(index)
+      const newCart = state.cart.filter((_, i) => i !== index)
+      return {
+        ...state,
+        cart: [...newCart],
+      }
+    }
+
     default:
       return state
   }

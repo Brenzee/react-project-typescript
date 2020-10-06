@@ -6,17 +6,16 @@ import Header from './Components/Header'
 import MainScreen from './Screens/MainScreen'
 import Footer from './Components/Footer'
 import ProductScreen from './Screens/ProductScreen'
-import Switch from 'react-bootstrap/esm/Switch'
+import CartScreen from './Screens/CartScreen'
 
 function App() {
   return (
     <Router>
       <Header />
       <main className='py-3'>
-        <Switch>
-          <Route path='/product/:id' component={ProductScreen} />
-          <Route path='/' exact component={MainScreen} />
-        </Switch>
+        <Route path='/product/:id' component={ProductScreen} />
+        <Route path='/cart' component={CartScreen} />
+        <Route path='/' exact component={MainScreen} />
       </main>
       <Footer />
     </Router>

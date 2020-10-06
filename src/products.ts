@@ -1,13 +1,4 @@
-interface Product {
-  id: number
-  name: string
-  price: number
-  category: string
-  desc: string
-  image: string
-}
-
-export const products: Array<Product> = [
+export const products: Product[] = [
   {
     id: 1,
     name: 'iPhone XS',

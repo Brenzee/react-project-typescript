@@ -1,23 +1,15 @@
-interface CartActions {
-  type: 'CART_ADD'
-  payload: {
-    product: Number
-    name: String
-    image: String
-    price: Number
+import { ADD_CART, REMOVE_CART } from '../constants'
+
+export const AddToCart = (item: Product) => {
+  return {
+    type: ADD_CART,
+    payload: item,
   }
 }
 
-export const addToCart = (product: any) => (
-  dispatch: (cartAction: CartActions) => void
-) => {
-  dispatch({
-    type: 'CART_ADD',
-    payload: {
-      product: product.id,
-      name: product.name,
-      image: product.image,
-      price: product.price,
-    },
-  })
+export const RemoveFromCart = (id: number) => {
+  return {
+    type: REMOVE_CART,
+    payload: id,
+  }
 }

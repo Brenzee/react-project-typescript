@@ -1,11 +1,11 @@
-import { createStore, combineReducers, compose } from 'redux'
+import { createStore, combineReducers } from 'redux'
 import { composeWithDevTools } from 'redux-devtools-extension'
 import { cartReducer } from './Reducers/cartReducer'
 
 const reducer = combineReducers({
-  cart: cartReducer,
+  system: cartReducer,
 })
 
-const initialState = {}
+const initialState: RootState = {}
 
 export const store = createStore(reducer, initialState, composeWithDevTools())
